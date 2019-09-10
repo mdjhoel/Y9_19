@@ -7,6 +7,7 @@ def square():
         right(90)
 
 # run new square() function 4 times 
-for i in range(4):
-    square()
-    forward(100)
+square()
+square()
+square()
+square()
