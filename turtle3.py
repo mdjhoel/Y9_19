@@ -5,6 +5,7 @@ def square():
     for i in range(4):
         forward(100)
         right(90)
+    forward(100) # move to next position
 
 # run new square() function 4 times 
 square()
