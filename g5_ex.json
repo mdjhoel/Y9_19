@@ -1,0 +1,203 @@
+data = {
+  "avgpoints": 72,
+  "badges": {
+    "bubble": 1,
+    "calendar": 3,
+    "star": 4,
+    "tool": 4
+  },
+  "badgestotal": 9,
+  "confirmed": true,
+  "daily": [
+    {
+      "badge": 0,
+      "desc": "Normal day, nothing to report",
+      "grade": 3,
+      "mydate": "28/11/2019-11:20",
+      "value": 0
+    },
+    {
+      "badge": "calendar",
+      "desc": "emailed - dentist",
+      "grade": 3,
+      "mydate": "19/11/2019-16:2",
+      "value": 0
+    },
+    {
+      "badge": 0,
+      "desc": "Normal day, nothing to report",
+      "grade": 3,
+      "mydate": "15/11/2019-11:40",
+      "value": 0
+    },
+    {
+      "badge": "star",
+      "desc": "Criteria B exemplar and good questions in class",
+      "grade": 4,
+      "mydate": "7/11/2019-12:44",
+      "value": 1
+    },
+    {
+      "badge": "star",
+      "desc": "already working on CCC problems",
+      "grade": 4,
+      "mydate": "1/11/2019-12:35",
+      "value": 1
+    },
+    {
+      "badge": "calendar",
+      "desc": "emailed me, dentist",
+      "grade": 3,
+      "mydate": "25/10/2019-15:19",
+      "value": 0
+    },
+    {
+      "badge": "star",
+      "desc": "taking a survey of his two designs! great for justification",
+      "grade": 4,
+      "mydate": "22/10/2019-11:54",
+      "value": 1
+    },
+    {
+      "badge": "tool",
+      "desc": "really nice sketches",
+      "grade": 4,
+      "mydate": "15/10/2019-17:24",
+      "value": 1
+    },
+    {
+      "badge": 0,
+      "desc": "Normal day, nothing to report",
+      "grade": 3,
+      "mydate": "9/10/2019-12:51",
+      "value": 0
+    },
+    {
+      "badge": 0,
+      "desc": "Normal day, nothing to report",
+      "grade": 3,
+      "mydate": "9/10/2019-9:16",
+      "value": 0
+    },
+    {
+      "badge": 0,
+      "desc": "Normal day, nothing to report",
+      "grade": 3,
+      "mydate": "9/10/2019-8:28",
+      "value": 0
+    },
+    {
+      "badge": "tool",
+      "desc": "on task, Criteria A looking good - use numbers for prioritized research, explain what each is more clearly",
+      "grade": 4,
+      "mydate": "2/10/2019-15:6",
+      "value": 1
+    },
+    {
+      "badge": "calendar",
+      "desc": "ill",
+      "grade": 3,
+      "mydate": "27/9/2019-11:17",
+      "value": 0
+    },
+    {
+      "badge": 0,
+      "desc": "Normal day, nothing to report",
+      "grade": 3,
+      "mydate": "19/9/2019-16:37",
+      "value": 0
+    },
+    {
+      "badge": "tool",
+      "desc": "engaged and working hard",
+      "grade": 4,
+      "mydate": "16/9/2019-14:13",
+      "value": 1
+    },
+    {
+      "badge": "bubble",
+      "desc": "great questions, engaged",
+      "grade": 4,
+      "mydate": "11/9/2019-10:56",
+      "value": 1
+    },
+    {
+      "badge": "tool",
+      "desc": "trying things and paying close attention",
+      "grade": 4,
+      "mydate": "9/9/2019-18:1",
+      "value": 1
+    },
+    {
+      "badge": "star",
+      "desc": "calmly overcame computing challenges",
+      "grade": 4,
+      "mydate": "5/9/2019-12:31",
+      "value": 1
+    }
+  ],
+  "dailytotal": 63,
+  "dateconfirmed": "3/12/2019-10:45",
+  "email": "first.last@ucc.on.ca",
+  "level": {
+    "desc": "",
+    "high": 110,
+    "low": 71,
+    "name": "Apprentice",
+    "number": 5,
+    "priv": ""
+  },
+  "name": "First Last",
+  "photoUrl": "https://pbs.twimg.com/profile_images/802336845652721664/RKeQ0lVb_400x400.jpg",
+  "pointstotal": 92,
+  "preferences": {
+    "badgechk": false,
+    "dailychk": false,
+    "levelchk": false
+  },
+  "quiztotal": 20,
+  "quizzes": [
+    {
+      "grade": -99,
+      "name": "Errors-Random-Search Quiz",
+      "xp": 0
+    },
+    {
+      "grade": 40,
+      "name": "Critera CD check-in",
+      "xp": 0
+    },
+    {
+      "grade": 100,
+      "name": "File IO / Search",
+      "xp": 4
+    },
+    {
+      "grade": 100,
+      "name": "Data types",
+      "xp": 4
+    },
+    {
+      "grade": 100,
+      "name": "Criteria B - paper",
+      "xp": 4
+    },
+    {
+      "grade": -99,
+      "name": "Criteria A - hwk",
+      "xp": 0
+    },
+    {
+      "grade": 100,
+      "name": "tkgui hwk",
+      "xp": 4
+    },
+    {
+      "grade": 100,
+      "name": "Python basics",
+      "xp": 4
+    }
+  ],
+  "section": 1,
+  "uid": "BLF429wbAJhZ3NZP9zUzBQP4S513"
+}
