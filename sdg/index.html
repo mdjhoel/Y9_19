@@ -1,0 +1,37 @@
+<html>
+
+    <head>
+        <title>Poverty</title>
+        <!-- step 1: download .csv from 
+               https://unstats.un.org/sdgs/indicators/database/
+             step 2: view .csv as spreadsheet in Google Docs
+             step 3: remove data you don't need
+             step 4: download as .csv
+             step 5: convert .csv to .json
+               https://www.csvjson.com/csv2json
+             step 6: copy .json data to a file called data.js
+             step 7: edit data.js file - add data = infront of data
+             step 8: import the data.js into your index.html
+             step 9: write a script to access data
+             step 10: place data on your index.html
+        -->
+        <script src="data.js"></script>
+    </head>
+    
+    <body>
+        <h1>Proportion of population below international poverty line (%)</h1>
+        <p>Data accessed from <a href="https://unstats.un.org/sdgs/indicators/database/" target="_blank">SDG Indicators website</a>. Goal 1, Indicator 1.1.1</p>
+        <div id="datadump"></div>
+    </body>
+    
+    <script>
+        dataarray = Object.values(data); // convert obj to array
+        countries = "";
+        for (i=0;i<dataarray.length; i++) {
+            console.log(dataarray[i]['GeoAreaName']);
+            countries = countries + dataarray[i]['GeoAreaName'] + JSON.stringify(dataarray[i]) + "<br>";
+        }
+        document.getElementById("datadump").innerHTML = countries;
+    </script>
+
+</html>
