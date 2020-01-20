@@ -1,0 +1,56 @@
+<html>
+
+	<head>
+		<link href='mystyles.css' rel="stylesheet">
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	</head>
+
+	<body>
+
+		<div style="margin: 0px">
+			<img src="africa.jpg" width="100%">
+			<div class="topnav">
+			  <a href="index.html">Home</a>
+			  <a class="active" href="sdg.html">SDG Target 1.1.1</a>
+			  <a href="about.html">About</a>
+			</div> 
+		</div>
+
+		<div style="margin-left:20px;">
+			<h1>SDG Target 1.1.1</h1>
+			<p>Here is where some content might be included.</p>
+		</div>
+	
+	</body>
+
+	<script>
+
+		function search() {
+			mydatasshowdiv = document.getElementById("datashow");
+			mysearchinput = document.getElementById("searchinput").value;
+			filtered = [];
+			for (i = 0; i < data.length; i++) {
+				if (data[i]["GeoAreaName"] == mysearchinput) {
+					filtered.push(data[i])
+				}
+			}
+
+			if (filtered.length == 0) {
+				mydatasshowdiv.innerHTML = mysearchinput + " not found in the database";
+				document.getElementById("searchinput").value = "";
+				return;
+			}
+
+			myhtml = ""
+			for (i = 0; i < filtered.length; i++) {
+				myhtml = myhtml + "<b>" + filtered[i]["GeoAreaName"] + "</b><br>" + filtered[i]["TimePeriod"] + " - " + filtered[i]["Value"] + "<br>";
+			}
+			mydatasshowdiv.innerHTML = myhtml;
+			document.getElementById("searchinput").value = "";
+
+
+		}
+
+	</script>
+
+</html>

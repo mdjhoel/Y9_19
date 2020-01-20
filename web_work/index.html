@@ -1,0 +1,63 @@
+<html>
+
+	<head>
+		<link href='mystyles.css' rel="stylesheet">
+		<script src="mydata.js"></script>
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	</head>
+
+	<body>
+
+		<div style="margin: 0px">
+		<img src="africa.jpg" width="100%">
+		<div class="topnav">
+		  <a class="active" href="#home">Home</a>
+		  <a href="sdg.html">SDG Target 1.1.1</a>
+		  <a href="about.html">About</a>
+		  <div class="search-container">
+		      <input type="text" placeholder="Search.." name="search" id="searchinput">
+		      <button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+		  </div>
+		</div> 
+		</div>
+
+		<div style="margin-left:20px;">
+			<h1>Percentage of workers making $1.25 / day</h1>
+			<p>Would it surprise you to know there are millions of workers making $1.25 / day around the world. In general the trend has improved, but the sheer misery faced by millions is appalling. This web site seeks to educate the world and be a small part of a solution to this terrible problem.
+			<h3>Search countries</h3>
+			<div id="datashow"></div>
+		</div>
+	
+	</body>
+
+	<script>
+
+		function search() {
+			mydatasshowdiv = document.getElementById("datashow");
+			mysearchinput = document.getElementById("searchinput").value;
+			filtered = [];
+			for (i = 0; i < data.length; i++) {
+				if (data[i]["GeoAreaName"] == mysearchinput) {
+					filtered.push(data[i])
+				}
+			}
+
+			if (filtered.length == 0) {
+				mydatasshowdiv.innerHTML = mysearchinput + " not found in the database";
+				document.getElementById("searchinput").value = "";
+				return;
+			}
+
+			myhtml = ""
+			for (i = 0; i < filtered.length; i++) {
+				myhtml = myhtml + "<b>" + filtered[i]["GeoAreaName"] + "</b><br>" + filtered[i]["TimePeriod"] + " - " + filtered[i]["Value"] + "<br>";
+			}
+			mydatasshowdiv.innerHTML = myhtml;
+			document.getElementById("searchinput").value = "";
+
+
+		}
+
+	</script>
+
+</html>
