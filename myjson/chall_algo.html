@@ -1,0 +1,92 @@
+<html>
+
+    <head>
+        <script src="data1_1_1.json"></script>
+    </head>
+
+    <body>
+        <h1>World poverty 25+ Age / Both Sexes (2000-2007)</h1>
+        <div id="mydata"></div>
+        
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+        
+    </body>
+   
+    <script>
+        
+        drawChallenge();
+                
+        function drawChallenge() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            
+            ctx.font = "20px Arial"; // set font
+                 
+            // create parallel arrays with element numbers to pick from database and colors to use
+            drawnums = [3,9,26,32,38,49,55,72];
+            barcolors = ["red","blue","orange","yellow","green","pink","purple","black"];
+            // set initial bar and text y values and the Y increment to add each loop
+            barY = 20;
+            textY = 50;
+            inc = 60;
+            
+            for (i = 0; i < drawnums.length; i++) {
+                ctx.fillStyle = barcolors[i];
+                ctx.fillRect(10,barY,data[drawnums[i]]['Value'] * 10,50);
+                ctx.fillStyle = "white";
+                ctx.fillText(data[drawnums[i]]["TimePeriod"] + ": " + data[drawnums[i]]['Value'] + "%", 15,textY);
+                textY = textY + inc;
+                barY = barY + inc;
+            }
+            
+            /*
+            
+            // 8x4 lines of code - wasteful! we need a loop algorithm here
+            // can anyone figure this out?
+            
+            ctx.fillStyle = "red";
+            ctx.fillRect(10,20,data[3]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[3]["TimePeriod"] + ": " + data[3]['Value'] + "%", 15,50)
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(10,80,data[9]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[9]["TimePeriod"] + ": " + data[9]['Value'] + "%", 15,110)
+            
+            ctx.fillStyle = "orange";
+            ctx.fillRect(10,140,data[26]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[26]["TimePeriod"] + ": " + data[26]['Value'] + "%", 15,170)
+            
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(10,200,data[32]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[32]["TimePeriod"] + ": " + data[32]['Value'] + "%", 15,230)
+            
+            ctx.fillStyle = "green";
+            ctx.fillRect(10,260,data[38]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[38]["TimePeriod"] + ": " + data[38]['Value'] + "%", 15,290)  
+            
+            ctx.fillStyle = "pink";
+            ctx.fillRect(10,320,data[49]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[49]["TimePeriod"] + ": " + data[49]['Value'] + "%", 15,350)
+            
+            ctx.fillStyle = "purple";
+            ctx.fillRect(10,380,data[55]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[55]["TimePeriod"] + ": " + data[55]['Value'] + "%", 15,410)
+            
+            ctx.fillStyle = "black";
+            ctx.fillRect(10,440,data[72]['Value'] * 10,50);
+            ctx.fillStyle = "white";
+            ctx.fillText(data[72]["TimePeriod"] + ": " + data[72]['Value'] + "%", 15,470)
+            */
+        }
+        
+    </script>
+
+
+</html>
