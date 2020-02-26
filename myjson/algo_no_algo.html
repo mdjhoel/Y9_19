@@ -1,0 +1,74 @@
+
+<html>
+
+    <head>
+        <script src="data1_1_1.json"></script>
+    </head>
+
+    <body>
+        <h1>CAGE MATCH</h1>
+        <h3>Hard coded inefficient code vs Algo code</h3>
+        <button onclick="drawAlgo()">Algo</button><button onclick="drawNoAlgo()">No Algo</button>
+        <div id="mydata"></div>
+        
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+        
+    </body>
+   
+    <script>
+        
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        
+        drawNoAlgo();
+        //drawAlgo();
+        
+        function drawNoAlgo() { // inefficient hard coding, imagine a graph with 100 bars?
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,0,800,50);
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,60,700,50);
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,120,600,50);
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,180,500,50);
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,240,400,50);
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,300,300,50);
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,360,200,50);
+            
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,420,100,50);
+            
+            document.getElementById("mydata").innerHTML = "<p>Inefficient hard coded code</p>";
+            
+        }
+                
+        function drawAlgo() { // this code is better as it uses 1/2 as much code
+            
+            y = 0;
+            w = 800
+            for (num = 0; num < 8; num++) {
+                ctx.fillStyle = "red";
+                ctx.fillRect(0,y,w,50);
+                y = y + 60;
+                w = w - 100;
+            }
+            
+            document.getElementById("mydata").innerHTML = "<p>Efficient algorithm code</p>";
+            
+        }
+        
+    </script>
+
+
+</html>
