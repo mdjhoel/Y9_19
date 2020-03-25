@@ -26,14 +26,14 @@ for line in datarows:
 	lat = templist[6]
 	lon = templist[7]
 
-	# make radius of circle bigger for cartographic interest
-	deathradius = int(deaths) * 150
+	# make radius of circle bigger for cartographic appeal
+	recoverradius = int(recover) * 50
 	
-	if (int(deaths) > 0):
+	if (int(recover) > 0):
 		if (prov != ""):
-			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(deathradius) + "}).addTo(map).bindPopup('" + prov.replace("'", "") + "," + country.replace("'","") + " : " + deaths + "')"	
+			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(recoverradius) + "}).addTo(map).bindPopup('" + prov.replace("'", "") + "," + country.replace("'","") + " : " + recover + "')"	
 		else:
-			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(deathradius) + "}).addTo(map).bindPopup('" + country.replace("'", "") + " : " + deaths + "')"
+			marker = "L.circle([" + lat + "," + lon + "],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:" + str(recoverradius) + "}).addTo(map).bindPopup('" + country.replace("'", "") + " : " + recover + "')"
 
 		fo.write(marker + "\n")
 		count = count + 1
@@ -41,4 +41,3 @@ for line in datarows:
 
 print(str(count) + " markers written out")
 fo.close()
-
