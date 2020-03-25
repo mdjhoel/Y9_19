@@ -6,7 +6,7 @@
     </head>
     
     <body>
-        <h1>Deaths due to COVID19 (March 23, 2020)</h1>
+        <h1>COVID-19 Recovered (March 23, 2020)</h1>
         <div id='map' style='width:100%; height:500'></div>
     </body>
     
@@ -19,9 +19,10 @@
         map.setView([51.5, 0.12],2); // centered on London lat, long
         map.addLayer(carto);
         
-        // add circles - Italy is here as an example 
+        // add circles - Italy and Hubei are here as an example 
         
-        L.circle([41.8719,12.5674], {color:'red', fillColor:'#f03', fillOpacity:0.5, radius:821400}).addTo(map).bindPopup('Italy : 5476');
+        L.circle([30.9756,112.2707], {color:'red',fillColor:'#f03',fillOpacity:0.5,radius:2971650}).addTo(map).bindPopup('Hubei,China : 59433')
+        L.circle([41.8719,12.5674], {color:'red',fillColor:'#f03',fillOpacity:0.5,radius:351200}).addTo(map).bindPopup('Italy : 7024')
         
     </script>
 
