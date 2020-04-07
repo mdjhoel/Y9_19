@@ -1,0 +1,63 @@
+<html>
+
+    <head>
+        <link rel='stylesheet' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'/>
+        <script src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+        <script src="conposcovidloc.geojson"></script>
+    </head>
+    
+    <body>
+        <h1>COVID-19 Recovered (March 23, 2020)</h1>
+        <div id='map' style='width:100%; height:500'></div>
+    </body>
+    
+    <script>
+        // Set up the world map
+        map = new L.Map('map');
+        var cartocdn = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
+        cartoAttrib = 'Carto geodatabase is good for this application';
+        carto = new L.TileLayer(cartocdn);
+        map.setView([43.65659125,-79.37935801],7); // centered on London lat, long
+        map.addLayer(carto);
+        
+        // circles for ont health units
+        L.circle([43.65659125,-79.37935801],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:42200}).addTo(map).bindPopup('Toronto : 844')
+        L.circle([42.98146842,-81.25401572],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:5450}).addTo(map).bindPopup('London : 109')
+        L.circle([43.46287573,-80.52091315],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:6950}).addTo(map).bindPopup('Waterloo : 139')
+        L.circle([43.151811,-80.27437415],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:2250}).addTo(map).bindPopup('Brantford : 45')
+        L.circle([43.96817279,-78.28579239],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:3450}).addTo(map).bindPopup('Port Hope : 69')
+        L.circle([42.98641646,-82.40480836],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:3100}).addTo(map).bindPopup('Point Edward : 62')
+        L.circle([43.5248813,-80.2337433],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:3450}).addTo(map).bindPopup('Guelph : 69')
+        L.circle([45.3456651,-75.7639122],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:15400}).addTo(map).bindPopup('Ottawa : 308')
+        L.circle([42.3087965,-83.0336705],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:5950}).addTo(map).bindPopup('Windsor : 119')
+        L.circle([48.4005716,-89.2588508],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:500}).addTo(map).bindPopup('Thunder Bay : 10')
+        L.circle([44.41071258,-79.68630597],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:3500}).addTo(map).bindPopup('Barrie : 70')
+        L.circle([43.1165366,-79.2412197],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:5450}).addTo(map).bindPopup('Thorold : 109')
+        L.circle([42.84782526,-80.30381491],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:2650}).addTo(map).bindPopup('Simcoe : 53')
+        L.circle([45.02915233,-74.73629779],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:1650}).addTo(map).bindPopup('Cornwall : 33')
+        L.circle([44.048023,-79.480239],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:20000}).addTo(map).bindPopup('Newmarket : 400')
+        L.circle([46.46609195,-80.99805884],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:1200}).addTo(map).bindPopup('Sudbury : 24')
+        L.circle([44.57619612,-80.94097993],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:700}).addTo(map).bindPopup('Owen Sound : 14')
+        L.circle([45.799406,-77.118727],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:300}).addTo(map).bindPopup('Pembroke : 6')
+        L.circle([44.18667362,-77.39144554],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:800}).addTo(map).bindPopup('Belleville : 16')
+        L.circle([44.30163229,-78.32134748],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:2000}).addTo(map).bindPopup('Peterborough : 40')
+        L.circle([43.898605,-78.940341],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:9650}).addTo(map).bindPopup('Whitby : 193')
+        L.circle([42.403861,-82.208561],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:450}).addTo(map).bindPopup('Chatham : 9')
+        L.circle([43.6474713,-79.7088933],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:22100}).addTo(map).bindPopup('Mississauga : 442')
+        L.circle([43.41399692,-79.74479581],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:5650}).addTo(map).bindPopup('Oakville : 113')
+        L.circle([43.2576311,-79.87134089],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:6800}).addTo(map).bindPopup('Hamilton : 136')
+        L.circle([44.2278735,-76.5252108],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:2350}).addTo(map).bindPopup('Kingston : 47')
+        L.circle([44.61584261,-75.70283308],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:2300}).addTo(map).bindPopup('Brockville : 46')
+        L.circle([42.77780366,-81.15115646],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:750}).addTo(map).bindPopup('St. Thomas : 15')
+        L.circle([43.3686615,-81.00191283],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:750}).addTo(map).bindPopup('Stratford : 15')
+        L.circle([49.76961482,-94.48825435],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:150}).addTo(map).bindPopup('Kenora : 3')
+        L.circle([46.31320706,-79.4678405],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:150}).addTo(map).bindPopup('North Bay : 3')
+        L.circle([47.5092835,-79.681632],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:100}).addTo(map).bindPopup('New Liskeard : 2')
+        L.circle([48.47251,-81.32875],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:1350}).addTo(map).bindPopup('Timmins : 27')
+        L.circle([46.5323728,-84.3148358],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:300}).addTo(map).bindPopup('Sault Ste. Marie : 6')
+
+
+        
+    </script>
+
+</html>
