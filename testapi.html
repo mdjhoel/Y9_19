@@ -1,0 +1,40 @@
+<html>
+
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    </head>
+    
+    <body>
+        <h1>COVID-19 by country</h1>
+        <h5 id="date"></h5>
+        <div id="countries"></div>
+    </body>
+    
+    <script>
+    
+        axios.get("https://api.covid19api.com/summary")
+            .then(response => {
+                mydate = document.getElementById("date");
+                mydate.innerHTML = response.data['Date'];
+                mydiv = document.getElementById("countries");
+                mydiv.innerHTML = parseData(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        
+        function parseData(response) {
+            console.log(response);
+            data = response;
+            mybigstr = "";
+            allvalues = Object.values(data['Countries']);
+            for (i = 0; i < allvalues.length; i++) {
+                mybigstr = mybigstr + allvalues[i]['Country'] + " : " + allvalues[i]['TotalConfirmed'] + "<br>";
+            }
+            return mybigstr;
+        }
+        
+    </script>
+
+
+</html>
