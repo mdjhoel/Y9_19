@@ -2,6 +2,7 @@
 
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+        <script src="clookup.json"></script>
     </head>
     
     <body>
@@ -25,11 +26,18 @@
         
         function parseData(response) {
             console.log(response);
+            console.log(countries['ad']);
             data = response;
             mybigstr = "";
             allvalues = Object.values(data['Countries']);
             for (i = 0; i < allvalues.length; i++) {
-                mybigstr = mybigstr + allvalues[i]['Country'] + " : " + allvalues[i]['TotalConfirmed'] + "<br>";
+                ccode = allvalues[i]['CountryCode'].toLowerCase();
+                if (countries[ccode] != undefined) {
+                    lat = countries[ccode][0];
+                    lon = countries[ccode][1];
+                    mybigstr = mybigstr + allvalues[i]['Country'] + " : " + allvalues[i]['TotalConfirmed'] + " - lat: " + lat + " - lon: " + lon + "<br>";
+                }
+                
             }
             return mybigstr;
         }
