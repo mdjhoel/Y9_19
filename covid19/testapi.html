@@ -5,13 +5,15 @@
         <script src="https://mdjhoel.github.io/Y9_19/clookup.json"></script>
         <link rel='stylesheet' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'/>
         <script src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
     </head>
     
     <body>
         <h1>COVID-19 by country</h1>
         <h5 id="date"></h5>
-        <div id="countries"></div>
         <div id='map' style='width:100%; height:500'></div>
+        <canvas id="myChart" width="400" height="400"></canvas>
     </body>
     
     <script>
@@ -20,30 +22,64 @@
             .then(response => {
                 mydate = document.getElementById("date");
                 mydate.innerHTML = response.data['Date'];
-                mydiv = document.getElementById("countries");
                 mapit(response.data)
-                //mydiv.innerHTML = parseData(response.data);
+                chartit(response.data)
             })
             .catch(error => {
                 console.log(error);
             })
         
-        function parseData(response) {
-            console.log(response);
-            console.log(countries['ad']);
+        function chartit(response) {
+            
             data = response;
-            mybigstr = "";
             allvalues = Object.values(data['Countries']);
-            for (i = 0; i < allvalues.length; i++) {
-                ccode = allvalues[i]['CountryCode'].toLowerCase();
-                if (countries[ccode] != undefined) {
-                    lat = countries[ccode][0];
-                    lon = countries[ccode][1];
-                    mybigstr = mybigstr + allvalues[i]['Country'] + " : " + allvalues[i]['TotalConfirmed'] + " - lat: " + lat + " - lon: " + lon + "<br>";
-                }
-                
+            countries = []
+            confirmed = []
+            for (i = 0; i < 6; i++) {
+                ccode = allvalues[i]['Country']
+                countries.push(ccode);
+                confirmed.push(allvalues[i]['TotalConfirmed'])                
             }
-            return mybigstr;
+            
+            console.log(countries,confirmed)
+            
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: countries,
+                    datasets: [{
+                        label: 'Total Confirmed',
+                        data: confirmed,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
         }
         
         function mapit(response) {
