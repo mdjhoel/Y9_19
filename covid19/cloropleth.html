@@ -3,7 +3,6 @@
     <head>
         <link rel='stylesheet' href='https://unpkg.com/leaflet@1.4.0/dist/leaflet.css'/>
         <script src='https://unpkg.com/leaflet@1.4.0/dist/leaflet.js'></script>
-        <script src="conposcovidloc.geojson"></script>
         <script src="cloropleth.geojson"></script><!-- import wrangled geojson -->
     </head>
     
@@ -16,14 +15,15 @@
         
         // GEOJSON COLOR RAMP
         function getColor(d) {
-           return d > 9 ? '#800026' :
-           d > 8  ? '#BD0026' :
-           d > 7  ? '#E31A1C' :
-           d > 5  ? '#FC4E2A' :
-           d > 3   ? '#FD8D3C' :
-           d > 2   ? '#FEB24C' :
-           d > 1   ? '#FED976' :
-                      '#FFEDA0';
+           if (d > 9) {
+              return '#800026'; 
+           } else if (d == 5) {
+              return '#FC4E2A';
+           } else if (d > 0 && d < 5) {
+              return '#FED976';
+           } else {
+              return '#FFEDA0' 
+           }
         }
         
         // GEOJSON STYLE
@@ -46,7 +46,7 @@
         map.setView([65,-100],3); // CENTERED ON CANADA
         map.addLayer(carto);
         
-        // THIS IS THE GEOJSON CODE
+        // THIS IS THE GEOJSON CODE - CLOROPLETH map
         L.geoJson(provs, {style: style, onEachFeature: function (feature, layer) {
         layer.bindPopup('<h3>Deaths</h3><h1>'+feature.properties.deaths+'</h1>');
         }}).addTo(map);
